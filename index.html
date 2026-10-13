@@ -55,8 +55,120 @@
          <li>..............</li>
          <li>MANWHICH</li>
    </p>   
-   <div>
-      <div>
+   
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Customer Feedback</title>
+
+  <style>
+    .feedback-box {
+      max-width: 450px;
+      padding: 25px;
+      margin: 20px 0;
+      background: #ffffff;
+      border: 1px solid #ddd;
+      border-radius: 12px;
+      font-family: Arial, sans-serif;
+      box-sizing: border-box;
+    }
+
+    .feedback-box h2 {
+      color: #222;
+      margin-top: 0;
+    }
+
+    .feedback-box p {
+      color: #666;
+    }
+
+    .feedback-box input,
+    .feedback-box textarea {
+      width: 100%;
+      padding: 12px;
+      margin: 8px 0 15px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      box-sizing: border-box;
+      font-size: 15px;
+    }
+
+    .feedback-box textarea {
+      height: 120px;
+      resize: vertical;
+    }
+
+    .feedback-box button {
+      width: 100%;
+      padding: 13px;
+      background: #25D366;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .feedback-box button:hover {
+      background: #128C7E;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="feedback-box">
+    <h2>Send Me Message</h2>
+    <p>Have feedback or a question? Contact me below.</p>
+
+    <form onsubmit="sendMessage(event)">
+      <label for="name">Your Name</label>
+      <input type="text" id="name"
+             placeholder="Enter your name" required>
+
+      <label for="phone">Your Phone Number</label>
+      <input type="tel" id="phone"
+             placeholder="Enter your phone number" required>
+
+      <label for="message">Your Message / Feedback</label>
+      <textarea id="message"
+                placeholder="Write your message here..."
+                required></textarea>
+
+      <button type="submit">Send Message on WhatsApp</button>
+    </form>
+  </div>
+
+  <script>
+    function sendMessage(event) {
+      event.preventDefault();
+
+      const name = document.getElementById("name").value.trim();
+      const phone = document.getElementById("phone").value.trim();
+      const message = document.getElementById("message").value.trim();
+
+      const myNumber = "254757787959";
+
+      const text =
+        "Customer Feedback\n\n" +
+        "Name: " + name + "\n" +
+        "Customer Phone: " + phone + "\n" +
+        "Message: " + message;
+
+      const url =
+        "https://wa.me/" + myNumber +
+        "?text=" + encodeURIComponent(text);
+
+      window.open(url, "_blank");
+    }
+  </script>
+
+</body>
+</html>
+      
         <label>COMMENT</label>
         <input type="text"
         placeholders="type in your first name"/>
